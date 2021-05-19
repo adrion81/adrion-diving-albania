@@ -1,0 +1,323 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+.header {
+    min-height: 100vh;
+    width: 100%;
+    background-image: url(foto/wrek\ 2.JPG);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+nav {
+    display: flex;
+    padding: 2% 6%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav img {
+    width: 150px;
+}
+.nav-links {
+    flex: 1;
+    text-align: right;
+}
+.nav-links ul li {
+    list-style: none;
+    display: inline-block;
+    padding: 8px 12px;
+    position: relative;
+}
+.nav-links ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+}
+.nav-links ul li::after {
+    content: "";
+    width: 0%;
+    height: 2px;
+    background: #f44336;
+    display: block;
+    margin: auto;
+    transition: 0, 5s;
+}
+.nav-links ul li:hover::after {
+    width: 100%;
+}
+.text-box {
+    width: 100%;
+    color: #fff;
+    position: absolute;
+    padding: 2rem;
+}
+.text-box h1 {
+    font-size: 40px;
+}
+
+.text-box p {
+    margin: 20px 0 40px;
+    font-size: 20px;
+    color: #fff;
+}
+.hero-btn {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 12px 34px;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+}
+.hero-btn:hover {
+    border: 1px solid#f44336;
+    background: rgb(236, 13, 106);
+    transition: 1s;
+}
+nav .fa {
+    display: none;
+}
+
+@media (max-width: 700px) {
+    .text-box h1 {
+        font-size: 20px;
+    }
+    .nav-links ul li {
+        display: block;
+    }
+    .nav-links {
+        position: absolute;
+        background: #f44336;
+        height: 100vh;
+        width: 200px;
+        top: 0;
+        right: -200px;
+        text-align: left;
+        z-index: 2;
+        transition: 1s;
+    }
+    nav .fa {
+        display: block;
+        color: #fff;
+        margin: 10px;
+        font-size: 22px;
+        cursor: pointer;
+    }
+    .nav-links ul {
+        padding: 30px;
+    }
+}
+
+input {
+    display: none;
+}
+.container {
+    width: 100%;
+    text-align: center;
+}
+h1 {
+    font-weight: normal;
+    font-size: 35px;
+    position: relative;
+    margin: 40px 0;
+}
+h1::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: #f44336;
+    bottom: -100;
+    left: 50;
+    transform: translateX(50%);
+    animation: animate 5s linear infinite;
+}
+@keyframes animate {
+    0% {
+        width: 100px;
+    }
+    50% {
+        width: 200px;
+    }
+
+    100% {
+        width: 100px;
+    }
+}
+
+.top-content {
+    background-color: aliceblue;
+    width: 90%;
+    margin: 0 auto 20px auto;
+    height: 60%;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px;
+}
+h3 {
+    height: 100%;
+    background-color: rgb(96, 177, 231);
+    line-height: 60px;
+    padding: 0 40px;
+    border-radius: 10px;
+}
+label {
+    display: inline-block;
+    height: 100%;
+    margin: 0 20px;
+    line-height: 60px;
+    font-size: 20px;
+    color: cadetblue;
+    cursor: pointer;
+    transition: 0, 5s;
+}
+label:hover {
+    color: black;
+}
+
+.photo-gallery {
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+}
+.pic {
+    position: relative;
+    height: 230px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px lightgrey;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.pic img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+.pic::before {
+    content: "PHOTO GALLERY";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: linen;
+    font-size: 22px;
+    font-weight: bold;
+    width: 100%;
+    margin-top: -100px;
+    opacity: 0;
+    transition: 0.3s;
+    transition-delay: 0.2s;
+    z-index: 2;
+}
+.pic::after {
+    content: ´´;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    border-radius: 10px;
+    height: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: 0.3s;
+}
+.pic:hover::after {
+    height: 100%;
+}
+.pic:hover::before {
+    margin-top: 0;
+    opacity: 1;
+}
+#check1:checked ~ .container .photo-gallery .pic {
+    opacity: 1;
+    transform: scale(1);
+    position: relative;
+    transition: 0.05s;
+}
+#check2:checked ~ .container .photo-gallery .wrek ship {
+    opacity: 1;
+    transform: scale(1);
+    position: relative;
+    transition: 0s;
+}
+#check2:checked ~ .container .photo-gallery .course,
+#check2:checked ~ .container .photo-gallery .fish {
+    opacity: 0;
+    transform: scale(0);
+    position: absolute;
+}
+
+#check3:checked ~ .container .photo-gallery .course {
+    opacity: 1;
+    transform: scale(1);
+    position: relative;
+    transition: 0s;
+}
+#check3:checked ~ .container .photo-gallery .wrek ship,
+#check3:checked ~ .container .photo-gallery .fish {
+    opacity: 0;
+    transform: scale(0);
+    position: absolute;
+}
+#check4:checked ~ .container .photo-gallery .fish {
+    opacity: 1;
+    transform: scale(1);
+    position: relative;
+    transition: 0s;
+}
+#check4:checked ~ .container .photo-gallery .wrek ship,
+#check4:checked ~ .container .photo-gallery .course {
+    opacity: 0;
+    transform: scale(0);
+    position: absolute;
+}
+
+.cta {
+    margin: 100px auto;
+    width: 80%;
+    background-image: url(foto/fish2.JPG);
+    background-position: top;
+    background-size: cover;
+    text-align: center;
+    border-radius: 10px;
+    padding: 100px 0;
+}
+.cta h1 {
+    color: #fff;
+    margin-bottom: 40px;
+    padding: 0;
+}
+
+@media (max-wirdth: 700px) {
+    .cta h1 {
+        font-size: 24px;
+    }
+}
+
+.footer {
+    width: 100%;
+    text-align: center;
+    padding: 30px 0;
+}
+.footer h4 {
+    margin-bottom: 25px;
+    margin-top: 20px;
+    font-weight: 600;
+}
+.icons .fa {
+    color: #f44336;
+    margin: 0 13px;
+    cursor: pointer;
+    padding: 18px 0;
+}
+.fa-heart-o {
+    color: red;
+}
